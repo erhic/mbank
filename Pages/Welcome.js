@@ -6,10 +6,9 @@ import { COLORS } from "../assets/styles/Utils";
 export default function Welcome() {
   return (
     <View>
-      <Text>Welcome</Text>
-      <View
+      {/* <View
         style={{
-          padding: 50,
+          padding: 70,
           backgroundColor: COLORS.primary,
           borderBottomEndRadius: 50,
           borderBottomLeftRadius: 50,
@@ -47,8 +46,9 @@ export default function Welcome() {
           >
             Register
           </Text>
-        </TouchableOpacity>
-      </View>
+        </TouchableOpacity> 
+      </View>*/}
+      <Login />
     </View>
   );
 }
@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
     fontSize: 35,
     display: "flex",
     position: "absolute",
-    paddingLeft: 142,
-    paddingTop: 210,
+    paddingLeft: 134,
+    paddingTop: 228,
   },
   loginBtn: {
     display: "flex",
@@ -82,7 +82,6 @@ const styles = StyleSheet.create({
   registerBtn: {
     alignItems: "center",
     justifyContent: "center",
-
     paddingHorizontal: 166,
     borderRadius: 4,
   },
