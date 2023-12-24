@@ -64,13 +64,15 @@ export default function Login() {
 
 const styles = StyleSheet.create({
   loginLabelOne: {
-    textAlign: "center",
+    // textAlign: "center",
+    paddingLeft: 60,
     paddingTop: 95,
     color: COLORS.secondary,
     paddingBottom: 10,
   },
   loginLabelTwo: {
-    textAlign: "center",
+    // textAlign: "center",
+    paddingLeft: 60,
     color: COLORS.secondary,
     paddingTop: 20,
     paddingBottom: 10,

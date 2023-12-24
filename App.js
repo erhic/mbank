@@ -3,11 +3,12 @@ import { StyleSheet, Text, View } from "react-native";
 import Welcome from "./Pages/Welcome";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import Services from "./Pages/Services";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Register />
+      <Services />
       <StatusBar style="auto" />
     </View>
   );

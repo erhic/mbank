@@ -75,13 +75,15 @@ export default function Register() {
 
 const styles = StyleSheet.create({
   registerLabelOne: {
-    textAlign: "center",
+    // textAlign: "center",
+    paddingLeft: 60,
     paddingTop: 20,
     color: COLORS.secondary,
     paddingBottom: 10,
   },
   registerLabelTwo: {
-    textAlign: "center",
+    // textAlign: "center",
+    paddingLeft: 60,
     color: COLORS.secondary,
     paddingTop: 20,
     paddingBottom: 10,
@@ -110,13 +112,15 @@ const styles = StyleSheet.create({
     objectFit: "contain",
   },
   registerLabelthree: {
-    textAlign: "center",
+    // textAlign: "center",
+    paddingLeft: 60,
     color: COLORS.secondary,
     paddingTop: 20,
     paddingBottom: 10,
   },
   registerLabelFour: {
-    textAlign: "center",
+    // textAlign: "center",
+    paddingLeft: 60,
     color: COLORS.secondary,
     paddingTop: 20,
     paddingBottom: 10,
