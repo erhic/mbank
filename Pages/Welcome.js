@@ -48,7 +48,8 @@ export default function Welcome() {
           </Text>
         </TouchableOpacity> 
       </View>*/}
-      <Login />
+
+      <Register />
     </View>
   );
 }
