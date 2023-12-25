@@ -7,13 +7,19 @@ import {
   View,
 } from "react-native";
 import React from "react";
-import { COLORS } from "../assets/styles/Utils";
+import { COLORS, HEADER } from "../assets/styles/Utils";
 
 export default function Services() {
   return (
     <SafeAreaView>
       <View>
         <Text style={styles.servicesTitle}>Services</Text>
+
+        <TouchableOpacity></TouchableOpacity>
+        <Image
+          source={require("../assets/images/back.png")}
+          style={styles.backBtn}
+        />
       </View>
       <View>
         <View style={styles.rowOne}>
@@ -75,7 +81,7 @@ export default function Services() {
                 marginTop: 12,
               }}
             />
-            <Text style={{ textAlign: "center" }}>Financial</Text>
+            <Text style={{ textAlign: "center" }}>Tips</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -84,14 +90,8 @@ export default function Services() {
 }
 
 const styles = StyleSheet.create({
-  servicesTitle: {
-    paddingTop: 45,
-    fontSize: 18,
-    textAlign: "center",
-    backgroundColor: COLORS.primary,
-    color: COLORS.lightWhite,
-    paddingBottom: 15,
-  },
+  servicesTitle: HEADER.servicesTitle,
+  backBtn: HEADER.backBtn,
   rowOne: {
     display: "flex",
     flexDirection: "row",
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.gray,
     borderRadius: 14,
     paddingHorizontal: 15,
-    paddingVertical: 21,
+    paddingVertical: 23,
   },
   balanceBtn: {
     backgroundColor: COLORS.gray,
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   tipsBtn: {
     backgroundColor: COLORS.gray,
     borderRadius: 14,
-    paddingVertical: 20,
-    paddingHorizontal: 28,
+    paddingVertical: 18,
+    paddingHorizontal: 30,
   },
 });

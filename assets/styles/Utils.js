@@ -48,4 +48,24 @@ const SHADOWS = {
   },
 };
 
-export { COLORS, FONT, SIZES, SHADOWS };
+const HEADER = {
+  servicesTitle: {
+    paddingTop: 45,
+    fontSize: 19,
+    textAlign: "center",
+    backgroundColor: COLORS.primary,
+    color: COLORS.lightWhite,
+    paddingBottom: 15,
+    fontWeight: "bold",
+  },
+  backBtn: {
+    display: "flex",
+    position: "absolute",
+    marginTop: 50,
+    marginLeft: 10,
+    objectFit: "contain",
+    height: 20,
+  },
+};
+
+export { COLORS, FONT, SIZES, SHADOWS, HEADER };
