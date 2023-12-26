@@ -8,13 +8,19 @@ import Deposit from "./Pages/Deposit";
 import Balance from "./Pages/Balance";
 import Cheque from "./Pages/Cheque";
 import Tips from "./Pages/Tips";
+import { NavigationContainer } from "@react-navigation/native";
+import Routes from "./Routes";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Tips />
-      <StatusBar style="auto" />
-    </View>
+    // <View style={styles.container}>
+    //   <Cheque />
+    //   <StatusBar style="auto" />
+    // </View>
+
+    <NavigationContainer>
+      <Routes />
+    </NavigationContainer>
   );
 }
 

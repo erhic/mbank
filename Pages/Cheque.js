@@ -1,17 +1,26 @@
-import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import { COLORS, HEADER } from "../assets/styles/Utils";
 
-export default function Cheque() {
+export default function Cheque({ navigation }) {
   return (
     <SafeAreaView>
       <View>
         <Text style={styles.servicesTitle}>Cheque</Text>
 
-        <Image
-          source={require("../assets/images/back.png")}
-          style={styles.backBtn}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate("Service")}>
+          <Image
+            source={require("../assets/images/back.png")}
+            style={styles.backBtn}
+          />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

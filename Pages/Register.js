@@ -29,21 +29,21 @@ export default function Register() {
         <TextInput
           style={styles.input}
           // onChangeText={onChangeText}
-          placeholder="Enter first name"
-          placeholderTextColor={(style = { color: COLORS.lightWhite })}
+          // placeholder="Enter first name"
+          // placeholderTextColor={(style = { color: COLORS.lightWhite })}
         />
         <Text style={styles.registerLabelFour}>Last Name</Text>
         <TextInput
           style={styles.input}
           // onChangeText={onChangeText}
-          placeholder="Enter last name"
+          // placeholder="Enter last name"
           placeholderTextColor={(style = { color: COLORS.lightWhite })}
         />
         <Text style={styles.registerLabelOne}>Account No</Text>
         <TextInput
           style={styles.input}
           // onChangeText={onChangeText}
-          placeholder="Enter account number"
+          // placeholder="Enter account number"
           placeholderTextColor={(style = { color: COLORS.lightWhite })}
         />
       </View>
@@ -52,7 +52,7 @@ export default function Register() {
         <TextInput
           style={styles.input}
           // onChangeText={onChangePin}
-          placeholder="Enter account PIN"
+          placeholder="********"
           placeholderTextColor={(style = { color: COLORS.lightWhite })}
         />
       </View>

@@ -61,7 +61,7 @@ const HEADER = {
   backBtn: {
     display: "flex",
     position: "absolute",
-    marginTop: 50,
+    marginTop: -32,
     marginLeft: 10,
     objectFit: "contain",
     height: 20,
