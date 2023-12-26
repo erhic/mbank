@@ -14,8 +14,6 @@ export default function Services() {
     <SafeAreaView>
       <View>
         <Text style={styles.servicesTitle}>Services</Text>
-
-        <TouchableOpacity></TouchableOpacity>
         <Image
           source={require("../assets/images/back.png")}
           style={styles.backBtn}

@@ -10,13 +10,12 @@ import {
 } from "react-native";
 import { COLORS } from "../assets/styles/Utils";
 
-export default function Register() {
+export default function Register({ navigation }) {
   return (
     <SafeAreaView>
       <View
         style={{
           backgroundColor: COLORS.primary,
-          padding: 0,
         }}
       >
         <Image
@@ -69,6 +68,19 @@ export default function Register() {
           Register
         </Text>
       </TouchableOpacity>
+      <View
+        style={{
+          alignSelf: "center",
+          display: "flex",
+          flexDirection: "row",
+          paddingVertical: 15,
+        }}
+      >
+        <Text>Already have an account ?</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+          <Text style={{ paddingLeft: 10 }}>Login</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
@@ -77,7 +89,7 @@ const styles = StyleSheet.create({
   registerLabelOne: {
     // textAlign: "center",
     paddingLeft: 60,
-    paddingTop: 20,
+    paddingTop: 10,
     color: COLORS.secondary,
     paddingBottom: 10,
   },
@@ -85,7 +97,7 @@ const styles = StyleSheet.create({
     // textAlign: "center",
     paddingLeft: 60,
     color: COLORS.secondary,
-    paddingTop: 20,
+    paddingTop: 10,
     paddingBottom: 10,
   },
   input: {
@@ -101,7 +113,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 50,
+    marginTop: 44,
   },
   logoImg: {
     backgroundColor: COLORS.primary,
@@ -115,14 +127,14 @@ const styles = StyleSheet.create({
     // textAlign: "center",
     paddingLeft: 60,
     color: COLORS.secondary,
-    paddingTop: 20,
+    paddingTop: 10,
     paddingBottom: 10,
   },
   registerLabelFour: {
     // textAlign: "center",
     paddingLeft: 60,
     color: COLORS.secondary,
-    paddingTop: 20,
+    paddingTop: 10,
     paddingBottom: 10,
   },
 });

@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { COLORS } from "../assets/styles/Utils";
 
-export default function Login() {
+export default function Login({ navigation }) {
   // const [text, onChangeText] = React.useState("Enter account no. here");
   // const [pinText, onChangePin] = React.useState("Enter PIN here");
   // const [number, onChangeNumber] = React.useState("");
@@ -19,7 +19,6 @@ export default function Login() {
       <View
         style={{
           backgroundColor: COLORS.primary,
-          padding: 0,
         }}
       >
         <Image
@@ -32,7 +31,7 @@ export default function Login() {
         <TextInput
           style={styles.input}
           // onChangeText={onChangeText}
-          placeholder="Enter account number"
+          // placeholder="Enter account number"
           placeholderTextColor={(style = { color: COLORS.lightWhite })}
         />
       </View>
@@ -41,7 +40,7 @@ export default function Login() {
         <TextInput
           style={styles.input}
           // onChangeText={onChangePin}
-          placeholder="Enter account PIN"
+          placeholder="*******"
           placeholderTextColor={(style = { color: COLORS.lightWhite })}
         />
       </View>
@@ -58,6 +57,12 @@ export default function Login() {
           Login
         </Text>
       </TouchableOpacity>
+      <View style={styles.register}>
+        <Text style={styles.registerText}>Dont have an account</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+          <Text style={styles.registerLink}>Register</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
@@ -66,7 +71,7 @@ const styles = StyleSheet.create({
   loginLabelOne: {
     // textAlign: "center",
     paddingLeft: 60,
-    paddingTop: 95,
+    paddingTop: 55,
     color: COLORS.secondary,
     paddingBottom: 10,
   },
@@ -96,8 +101,22 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     alignSelf: "center",
     display: "flex",
-
     width: 100,
     objectFit: "contain",
+  },
+  registerText: {
+    color: COLORS.secondary,
+    borderRadius: 10,
+  },
+  registerLink: {
+    color: COLORS.secondary,
+    paddingLeft: 10,
+  },
+  register: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 25,
   },
 });

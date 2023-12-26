@@ -1,5 +1,4 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import Welcome from "./Pages/Welcome";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
@@ -14,10 +13,20 @@ const Stack = createNativeStackNavigator();
 
 export default function Routes() {
   return (
-    <Stack.Navigator initialRouteName="Register">
+    <Stack.Navigator initialRouteName="Login">
       <Stack.Screen
         name="Deposit"
         component={Deposit}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Services"
+        component={Services}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Welcome"
+        component={Welcome}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -48,12 +57,3 @@ export default function Routes() {
     </Stack.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    // backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
-  },
-});
