@@ -11,9 +11,12 @@ import {
 import { COLORS } from "../assets/styles/Utils";
 
 export default function Login({ navigation }) {
-  // const [text, onChangeText] = React.useState("Enter account no. here");
-  // const [pinText, onChangePin] = React.useState("Enter PIN here");
-  // const [number, onChangeNumber] = React.useState("");
+  const [accNo, setAccNo] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [seePassword, setSeePassword] = React.useState(true);
+  const [checkValidEmail, setcheckValidEmail] = React.useState(false);
+  const eyeActive = require("../assets/icons/iconseyesee.png");
+  const eye = require("../assets/icons/iconhide.png");
   return (
     <SafeAreaView>
       <View
@@ -30,7 +33,8 @@ export default function Login({ navigation }) {
         <Text style={styles.loginLabelOne}>Account No</Text>
         <TextInput
           style={styles.input}
-          // onChangeText={onChangeText}
+          value={accNo}
+          onChangeText={(pin) => setAccNo(pin)}
           // placeholder="Enter account number"
           placeholderTextColor={(style = { color: COLORS.lightWhite })}
         />
@@ -39,10 +43,20 @@ export default function Login({ navigation }) {
         <Text style={styles.loginLabelTwo}>PIN</Text>
         <TextInput
           style={styles.input}
-          // onChangeText={onChangePin}
-          placeholder="*******"
+          value={password}
+          secureTextEntry={seePassword}
+          onChangeText={(text) => setPassword(text)}
           placeholderTextColor={(style = { color: COLORS.lightWhite })}
         />
+        <TouchableOpacity
+          style={styles.eyeIcon}
+          onPress={() => setSeePassword(!seePassword)}
+        >
+          <Image
+            style={{ objectFit: "contain", width: 30 }}
+            source={seePassword ? eye : eyeActive}
+          />
+        </TouchableOpacity>
       </View>
       <TouchableOpacity
         style={styles.loginBtn}
@@ -121,5 +135,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 25,
+  },
+  eyeIcon: {
+    position: "absolute",
+    paddingTop: 42,
+    paddingLeft: 285,
   },
 });
