@@ -15,7 +15,7 @@ export default function Cheque({ navigation }) {
       <View>
         <Text style={styles.servicesTitle}>Cheque</Text>
 
-        <TouchableOpacity onPress={() => navigation.navigate("Service")}>
+        <TouchableOpacity onPressIn={() => navigation.navigate("Services")}>
           <Image
             source={require("../assets/images/back.png")}
             style={styles.backBtn}

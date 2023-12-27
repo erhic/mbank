@@ -44,7 +44,10 @@ export default function Login({ navigation }) {
           placeholderTextColor={(style = { color: COLORS.lightWhite })}
         />
       </View>
-      <TouchableOpacity style={styles.loginBtn}>
+      <TouchableOpacity
+        style={styles.loginBtn}
+        onPress={() => navigation.navigate("Services")}
+      >
         <Text
           style={{
             backgroundColor: COLORS.primary,

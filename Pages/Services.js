@@ -9,19 +9,24 @@ import {
 import React from "react";
 import { COLORS, HEADER } from "../assets/styles/Utils";
 
-export default function Services() {
+export default function Services({ navigation }) {
   return (
     <SafeAreaView>
       <View>
         <Text style={styles.servicesTitle}>Services</Text>
-        <Image
-          source={require("../assets/images/back.png")}
-          style={styles.backBtn}
-        />
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+          <Image
+            source={require("../assets/images/back.png")}
+            style={styles.backBtn}
+          />
+        </TouchableOpacity>
       </View>
       <View>
         <View style={styles.rowOne}>
-          <TouchableOpacity style={styles.depositBtn}>
+          <TouchableOpacity
+            style={styles.depositBtn}
+            onPress={() => navigation.navigate("Deposit")}
+          >
             <Image
               source={require("../assets/icons/deposit.png")}
               style={{ objectFit: "contain", height: 45 }}
@@ -29,7 +34,10 @@ export default function Services() {
             <Text style={{ textAlign: "center" }}>Deposit</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.balanceBtn}>
+          <TouchableOpacity
+            style={styles.balanceBtn}
+            onPress={() => navigation.navigate("Balance")}
+          >
             <Image
               source={require("../assets/icons/balance.png")}
               style={{
@@ -43,7 +51,10 @@ export default function Services() {
           </TouchableOpacity>
         </View>
         <View style={styles.rowTwo}>
-          <TouchableOpacity style={styles.chequeBtn}>
+          <TouchableOpacity
+            style={styles.chequeBtn}
+            onPress={() => navigation.navigate("Cheque")}
+          >
             <Image
               source={require("../assets/icons/chequebook.png")}
               style={{
@@ -55,7 +66,10 @@ export default function Services() {
             />
             <Text style={{ textAlign: "center" }}>Stop Cheque</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.pinBtn}>
+          <TouchableOpacity
+            style={styles.pinBtn}
+            onPress={() => navigation.navigate("Pin")}
+          >
             <Image
               source={require("../assets/icons/account.png")}
               style={{
@@ -69,7 +83,10 @@ export default function Services() {
           </TouchableOpacity>
         </View>
         <View style={styles.financialContainer}>
-          <TouchableOpacity style={styles.tipsBtn}>
+          <TouchableOpacity
+            style={styles.tipsBtn}
+            onPress={() => navigation.navigate("Tips")}
+          >
             <Image
               source={require("../assets/icons/info.png")}
               style={{

@@ -6,6 +6,7 @@ import Services from "./Pages/Services";
 import Deposit from "./Pages/Deposit";
 import Balance from "./Pages/Balance";
 import Cheque from "./Pages/Cheque";
+import Pin from "./Pages/Pin";
 import Tips from "./Pages/Tips";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -52,6 +53,11 @@ export default function Routes() {
       <Stack.Screen
         name="Balance"
         component={Balance}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Pin"
+        component={Pin}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
