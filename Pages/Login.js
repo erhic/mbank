@@ -41,22 +41,22 @@ export default function Login({ navigation }) {
       </View>
       <View>
         <Text style={styles.loginLabelTwo}>PIN</Text>
-        <TextInput
-          style={styles.input}
-          value={password}
-          secureTextEntry={seePassword}
-          onChangeText={(text) => setPassword(text)}
-          placeholderTextColor={(style = { color: COLORS.lightWhite })}
-        />
-        <TouchableOpacity
-          style={styles.eyeIcon}
-          onPress={() => setSeePassword(!seePassword)}
-        >
-          <Image
-            style={{ objectFit: "contain", width: 30 }}
-            source={seePassword ? eye : eyeActive}
+
+        <View style={{ display: "flex", flexDirection: "row" }}>
+          <TextInput
+            style={styles.inputPass}
+            value={password}
+            secureTextEntry={seePassword}
+            onChangeText={(text) => setPassword(text)}
+            placeholderTextColor={(style = { color: COLORS.lightWhite })}
           />
-        </TouchableOpacity>
+          <TouchableOpacity onPressIn={() => setSeePassword(!seePassword)}>
+            <Image
+              style={styles.eyeIcon}
+              source={setPassword ? eye : eyeActive}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
       <TouchableOpacity
         style={styles.loginBtn}
@@ -107,6 +107,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: COLORS.lightWhite,
   },
+  inputPass: {
+    height: 40,
+    // marginHorizontal: 55,
+    marginLeft: 55,
+    paddingRight: 242,
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: COLORS.lightWhite,
+  },
   loginBtn: {
     display: "flex",
     flexDirection: "row",
@@ -137,8 +147,13 @@ const styles = StyleSheet.create({
     marginTop: 25,
   },
   eyeIcon: {
-    position: "absolute",
-    paddingTop: 42,
-    paddingLeft: 285,
+    // // position: "absolute",
+    // paddingTop: -40,
+    // display: "flex",
+    // flexDirection: "row",
+    // paddingLeft: 50,
+    objectFit: "contain",
+    width: 30,
+    marginLeft: -40,
   },
 });
