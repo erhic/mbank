@@ -41,6 +41,7 @@ export default function Register({ navigation }) {
         <Text style={styles.registerLabelOne}>Account No</Text>
         <TextInput
           style={styles.input}
+          keyboardType="numeric"
           // onChangeText={onChangeText}
           // placeholder="Enter account number"
           placeholderTextColor={(style = { color: COLORS.lightWhite })}

@@ -9,14 +9,70 @@ import {
   Image,
 } from "react-native";
 import { COLORS } from "../assets/styles/Utils";
+import { user_login } from "./userapi";
 
 export default function Login({ navigation }) {
   const [accNo, setAccNo] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [seePassword, setSeePassword] = React.useState(true);
-  const [checkValidEmail, setcheckValidEmail] = React.useState(false);
+  const [checkValidAccount, setcheckValidAccount] = React.useState(false);
   const eyeActive = require("../assets/icons/iconseyesee.png");
   const eye = require("../assets/icons/iconhide.png");
+
+  const handleAccNo = (text) => {
+    let numberRegex = /^\d+$/;
+    setAccNo(text);
+    if (!numberRegex) {
+      setcheckValidAccount(false);
+    } else {
+      setcheckValidAccount(true);
+    }
+  };
+  const passwordValidity = (text) => {
+    const isNonWhiteSpace = /^\S*$/;
+    if (!isNonWhiteSpace.test(text)) {
+      return "password must not contain whitespace";
+    }
+    const isContainUpperCase = /^\(?=.*[A-Z]).*/;
+    if (!isContainUpperCase.test(text)) {
+      return "password must atleast one upppercase character";
+    }
+    const isContainLowerCase = /^\(?=.*[a-z]).*/;
+    if (!isContainLowerCase.test(text)) {
+      return "password must atleast one lowercase character";
+    }
+    const isContainNumber = /^\(?=.*[0-9]).*/;
+    if (!isContainNumber.test(text)) {
+      return "password must contain atleast one digit";
+    }
+    const isValidLength = /^.{8,16}$/;
+    if (!isValidLength.test(text)) {
+      return "password must be 8-16 character long";
+    }
+    return null;
+  };
+
+  const handleLogin = () => {
+    const checkPassword = passwordValidity(password);
+    if (!checkPassword) {
+      user_login({
+        accNo: accNo,
+        password: password,
+      })
+        .then((result) => {
+          if (result.status == 200) {
+            AsyncStorage.setItem("AccessToken", result.data.token);
+            navigation.replace("Services");
+          }
+        })
+        .catch((err) => {
+          console.err(err);
+        });
+    } else {
+      alert(checkPassword);
+    }
+    console.log("llll");
+  };
   return (
     <SafeAreaView>
       <View
@@ -31,14 +87,17 @@ export default function Login({ navigation }) {
       </View>
       <View>
         <Text style={styles.loginLabelOne}>Account No</Text>
+        {checkValidAccount ? <Text>Wrong format</Text> : <Text>.</Text>}
         <TextInput
           style={styles.input}
           value={accNo}
-          onChangeText={(pin) => setAccNo(pin)}
+          keyboardType="numeric"
+          onChangeText={(text) => handleAccNo(text)}
           // placeholder="Enter account number"
           placeholderTextColor={(style = { color: COLORS.lightWhite })}
         />
       </View>
+
       <View>
         <Text style={styles.loginLabelTwo}>PIN</Text>
 
@@ -58,10 +117,7 @@ export default function Login({ navigation }) {
           </TouchableOpacity>
         </View>
       </View>
-      <TouchableOpacity
-        style={styles.loginBtn}
-        onPress={() => navigation.navigate("Services")}
-      >
+      <TouchableOpacity style={styles.loginBtn} onPress={handleLogin}>
         <Text
           style={{
             backgroundColor: COLORS.primary,
@@ -109,11 +165,10 @@ const styles = StyleSheet.create({
   },
   inputPass: {
     height: 40,
-    // marginHorizontal: 55,
     marginLeft: 55,
-    paddingRight: 242,
     borderWidth: 1,
     padding: 10,
+    width: 269,
     borderRadius: 10,
     backgroundColor: COLORS.lightWhite,
   },
