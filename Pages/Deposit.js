@@ -11,13 +11,32 @@ import React from "react";
 import { COLORS, HEADER } from "../assets/styles/Utils";
 
 export default function Deposit({ navigation }) {
+  useEffect(() => {
+    const authenticate = (async) => {
+      axios
+        .post(
+          "https://bakntest24.000webhostapp.com/deposit.php",
+          JSON.stringify({
+            amount: amount,
+          })
+        )
+        .then((response) => {
+          console.log(response);
+          setIsSubmit(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    if (isSubmit) authenticate();
+  }, [isSubmit]);
   return (
     <SafeAreaView>
       <View>
         <Text style={styles.servicesTitle}>Deposit here</Text>
-        <TouchableOpacity onPressIn={() => navigation.navigate("Login")}>
+        <TouchableOpacity onPressIn={() => navigation.navigate("Login")}/>
           <Image
-            source={require("../assets/images/back.png")}
+            source={require=("../assets/images/back.png")}
             style={styles.backBtn}
           />
         </TouchableOpacity>
