@@ -1,18 +1,26 @@
+import React from "react";
 import {
-  Image,
-  SafeAreaView,
-  StyleSheet,
   Text,
+  View,
+  StyleSheet,
+  SafeAreaView,
   TextInput,
   TouchableOpacity,
-  View,
+  Image,
 } from "react-native";
-import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { COLORS, HEADER } from "../assets/styles/Utils";
 
 export default function Deposit({ navigation }) {
+  const [amount, setAmount] = useState("");
+  const [isSubmit, setIsSubmit] = useState(false);
+
+  const amountHandler = (text) => {
+    setAmount(text);
+  };
   useEffect(() => {
-    const authenticate = (async) => {
+    const deposit = (async) => {
       axios
         .post(
           "https://bakntest24.000webhostapp.com/deposit.php",
@@ -28,18 +36,18 @@ export default function Deposit({ navigation }) {
           console.log(err);
         });
     };
-    if (isSubmit) authenticate();
+    if (isSubmit) deposit();
   }, [isSubmit]);
   return (
     <SafeAreaView>
       <View>
         <Text style={styles.servicesTitle}>Deposit here</Text>
-        <TouchableOpacity onPressIn={() => navigation.navigate("Login")}/>
-          <Image
-            source={require=("../assets/images/back.png")}
-            style={styles.backBtn}
-          />
-        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Services")} />
+        <Image
+          source={(require = "../assets/images/back.png")}
+          style={styles.backBtn}
+        />
+
         <View
           style={{
             display: "flex",
@@ -58,17 +66,16 @@ export default function Deposit({ navigation }) {
             <TextInput
               editable
               multiline
-              // numberOfLines={1}
-              // maxLength={40}
-              // onChangeText={(text) => onChangeText(text)}
-              // value="Value here"
               style={{ padding: 20, fontSize: 21 }}
+              value={amount}
+              keyboardType="numeric"
+              onChangeText={amountHandler}
             />
           </View>
           <View>
             <TouchableOpacity
               style={{ paddingVertical: 30 }}
-              onPress={() => navigation.navigate("Login")}
+              onPress={() => setIsSubmit(true)}
             >
               <Text style={styles.proceedBtn}>Proceed</Text>
             </TouchableOpacity>
