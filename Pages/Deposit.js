@@ -23,7 +23,7 @@ export default function Deposit({ navigation }) {
     const deposit = (async) => {
       axios
         .post(
-          "https://bakntest24.000webhostapp.com/deposit.php",
+          "https://mb4nk.000webhostapp.com/deposit.php",
           JSON.stringify({
             amount: amount,
           })
@@ -41,12 +41,16 @@ export default function Deposit({ navigation }) {
   return (
     <SafeAreaView>
       <View>
-        <Text style={styles.servicesTitle}>Deposit here</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Services")} />
-        <Image
-          source={(require = "../assets/images/back.png")}
-          style={styles.backBtn}
-        />
+        <View>
+          <Text style={styles.servicesTitle}> Deposit funds</Text>
+
+          <TouchableOpacity onPressIn={() => navigation.navigate("Services")}>
+            <Image
+              source={require("../assets/images/back.png")}
+              style={styles.backBtn}
+            />
+          </TouchableOpacity>
+        </View>
 
         <View
           style={{
@@ -92,7 +96,7 @@ const styles = StyleSheet.create({
   proceedBtn: {
     backgroundColor: COLORS.primary,
     color: COLORS.lightWhite,
-    paddingHorizontal: 40,
+    paddingHorizontal: 30,
     paddingVertical: 10,
     borderRadius: 10,
   },

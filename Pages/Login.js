@@ -31,7 +31,7 @@ export default function Login({ navigation }) {
     const authenticate = (async) => {
       axios
         .post(
-          "https://bakntest24.000webhostapp.com/login.php",
+          "https://mb4nk.000webhostapp.com/login.php",
           JSON.stringify({
             accountno: accountno,
             pin: pin,
